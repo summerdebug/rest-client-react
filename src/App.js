@@ -2,18 +2,24 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
-import './App.css';
+import InputGroup from 'react-bootstrap/InputGroup'
+import './App.css'
+import React, {useState} from 'react'
 
 function App() {
+  const [url, setUrl] = useState("http://localhost:8080/api/validate/trades");
+
   return (
     <div className="App">
-      <Container>
+      <Container fluid>
           <Form>
             <Row>
               <Col>
                 <Form.Group className="mb-3" controlId="urlGroup">
-                  <Form.Label>URL</Form.Label>
-                  <Form.Control type="text" placeholder="http://localhost:8080/api/validate/trades" />
+                  <InputGroup className="my-3">
+                    <InputGroup.Text>URL</InputGroup.Text>
+                    <Form.Control type="text" value={url} />
+                  </InputGroup>
                 </Form.Group></Col>
             </Row>
             <Row>
