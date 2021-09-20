@@ -23,7 +23,18 @@ function App() {
                 </Form.Group></Col>
             </Row>
             <Row>
-              <Col>Row 2, Col 1</Col>
+              <Col>
+                <Form.Group className="my-3" controlId="request">
+                  <Form.Label>Request</Form.Label>
+                  <Form.Control as="textarea" rows={5} />
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group className="my-3" controlId="response">
+                  <Form.Label>Response</Form.Label>
+                  <Form.Control as="textarea" rows={5} />
+                </Form.Group>
+              </Col>
             </Row>
             <Row>
               <Col>Row 3, Col 1</Col>
