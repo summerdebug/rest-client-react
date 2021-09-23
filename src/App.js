@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form'
 import InputGroup from 'react-bootstrap/InputGroup'
 import './App.css'
 import React, {useState} from 'react'
+import Button from 'react-bootstrap/Button'
 
 function App() {
   const [url, setUrl] = useState("http://localhost:8080/api/validate/trades");
@@ -37,7 +38,8 @@ function App() {
               </Col>
             </Row>
             <Row>
-              <Col>Row 3, Col 1</Col>
+              <Col><Button variant="primary">Send</Button></Col>
+              <Col><Button variant="secondary">Clear</Button></Col>
             </Row>
           </Form>
       </Container>
