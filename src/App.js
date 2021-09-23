@@ -9,7 +9,9 @@ import Button from 'react-bootstrap/Button'
 
 function App() {
   const [url, setUrl] = useState("http://localhost:8080/api/validate/trades");
-  const [requestBody, setRequestBody] = useState("Request body");
+  const [requestBody, setRequestBody] = useState("[\n{\"customer\":\"PLUTO1\", \"ccyPair\":\"EURUSD\", \"type\":\"Spot\", \"direction\":\"BUY\", \"tradeDate\":\"2016-08-11\", \"amount1\":1000000.00, \"amount2\":1120000.00, \"rate\":1.12, \"valueDate\":\"2016-08-15\", \"legalEntity\":\"CS Zurich\", \"trader\":\"JohannBaumfiddler\"}," +
+  "\n{\"customer\":\"PLUTO1\", \"ccyPair\":\"EURUSD\", \"type\":\"Spot\", \"direction\":\"SELL\", \"tradeDate\":\"2016-08-11\", \"amount1\":1000000.00, \"amount2\":1120000.00, \"rate\":1.12, \"valueDate\":\"2016-08-22\", \"legalEntity\":\"CS Zurich\", \"trader\":\"JohannBaumfiddler\"}" +  
+  "\n]");
 
   const sendClick = () => {
     alert(requestBody)
