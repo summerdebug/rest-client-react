@@ -14,7 +14,13 @@ function App() {
   "\n]");
 
   const sendClick = () => {
-    alert(requestBody)
+    fetch(url, {
+      method: 'POST',
+      headers: new Headers({'Content-Type':'application/json'}),
+      body: requestBody
+    })
+    .then(response => response.json())
+    .then(data => console.log(data));
   }
 
   return (
