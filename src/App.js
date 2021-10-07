@@ -9,9 +9,11 @@ import Button from 'react-bootstrap/Button'
 
 function App() {
   const [url, setUrl] = useState("http://localhost:8080/api/validate/trades");
-  const [requestBody, setRequestBody] = useState("[\n{\"customer\":\"PLUTO1\", \"ccyPair\":\"EURUSD\", \"type\":\"Spot\", \"direction\":\"BUY\", \"tradeDate\":\"2016-08-11\", \"amount1\":1000000.00, \"amount2\":1120000.00, \"rate\":1.12, \"valueDate\":\"2016-08-15\", \"legalEntity\":\"CS Zurich\", \"trader\":\"JohannBaumfiddler\"}," +
-  "\n{\"customer\":\"PLUTO1\", \"ccyPair\":\"EURUSD\", \"type\":\"Spot\", \"direction\":\"SELL\", \"tradeDate\":\"2016-08-11\", \"amount1\":1000000.00, \"amount2\":1120000.00, \"rate\":1.12, \"valueDate\":\"2016-08-22\", \"legalEntity\":\"CS Zurich\", \"trader\":\"JohannBaumfiddler\"}" +  
-  "\n]");
+  const [requestBody, setRequestBody] = useState(JSON.stringify(JSON.parse(
+    "[{\"customer\":\"PLUTO1\", \"ccyPair\":\"EURUSD\", \"type\":\"Spot\", \"direction\":\"BUY\", \"tradeDate\":\"2016-08-11\", \"amount1\":1000000.00, \"amount2\":1120000.00, \"rate\":1.12, \"valueDate\":\"2016-08-15\", \"legalEntity\":\"CS Zurich\", \"trader\":\"JohannBaumfiddler\"}," +
+    "{\"customer\":\"PLUTO1\", \"ccyPair\":\"EURUSD\", \"type\":\"Spot\", \"direction\":\"SELL\", \"tradeDate\":\"2016-08-11\", \"amount1\":1000000.00, \"amount2\":1120000.00, \"rate\":1.12, \"valueDate\":\"2016-08-22\", \"legalEntity\":\"CS Zurich\", \"trader\":\"JohannBaumfiddler\"}" +  
+    "]"
+    ), null, 2));
   const [response, setResponse] = useState();
 
   const sendClick = () => {
@@ -42,14 +44,15 @@ function App() {
               <Col>
                 <Form.Group className="my-3" controlId="request">
                   <Form.Label>Request</Form.Label>
-                  <Form.Control as="textarea" rows={5} value = {requestBody}
+                  <Form.Control as="textarea" rows={10}
+                    value = {requestBody}
                     onChange={e => setRequestBody(e.target.value)} />
                 </Form.Group>
               </Col>
               <Col>
                 <Form.Group className="my-3" controlId="response">
                   <Form.Label>Response</Form.Label>
-                  <Form.Control as="textarea" rows={5} value = {response}
+                  <Form.Control as="textarea" rows={10} value = {response}
                    onChange={e => setResponse(e.target.value)} />
                 </Form.Group>
               </Col>
